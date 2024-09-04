@@ -9,7 +9,13 @@ import { TitleCasePipe } from '@angular/common';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive, TitleCasePipe],
+  imports: [
+    FormsModule,
+    BsDropdownModule,
+    RouterLink,
+    RouterLinkActive,
+    TitleCasePipe,
+  ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
@@ -18,7 +24,7 @@ export class NavComponent {
   private router = inject(Router);
   private toastr = inject(ToastrService);
   model: any = {};
-  
+
   login() {
     this.accountService.login(this.model).subscribe({
       next: () => {
@@ -27,7 +33,7 @@ export class NavComponent {
       error: (error) => this.toastr.error(error.error),
     }),
       console.log(this.model);
-      console.log(this.accountService.currentUser());
+    console.log(this.accountService.currentUser());
   }
   logout() {
     this.accountService.logout();
