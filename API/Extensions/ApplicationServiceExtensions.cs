@@ -16,7 +16,8 @@ public static class ApplicationServiceExtensions
         );
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();// each time that it is requested so each time that user is loggin in
-
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         return services;
     }
 
